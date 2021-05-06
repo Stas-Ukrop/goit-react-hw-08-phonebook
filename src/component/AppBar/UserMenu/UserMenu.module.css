@@ -1,0 +1,40 @@
+.button {
+  display: flex;
+  background-color: inherit;
+  margin-left: 15px;
+  color: rgb(180, 120, 236);
+  font-family: "Marck Script", cursive;
+  font-size: 25px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding-top: 5px;
+}
+
+.icon {
+  width: 40px;
+  height: auto;
+  padding-left: 10px;
+}
+.button:hover,
+.button:active,
+.button:focus {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px rgba(154, 45, 197, 0.644);
+  color: rgb(89, 17, 110);
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  font-size: 25px;
+  color: lightcoral;
+  font-weight: bold;
+  margin: 0px;
+  text-align: center;
+  padding-left: 10px;
+}

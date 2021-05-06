@@ -1,0 +1,37 @@
+.card {
+  background-color: rgba(145, 79, 206, 0.459);
+  margin: 5px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.avatar {
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.name {
+  margin: 0px;
+  font-size: 30px;
+}
+
+.number {
+  margin: 0px;
+  margin-top: 5px;
+  font-size: 25px;
+}
+
+.button {
+  background-color: white;
+  border: 1px solid white;
+  padding: 4px;
+  border-radius: 7px;
+  outline: none;
+  font-family: "Marck Script";
+}
+.button:hover,
+.button:focus,
+.button:active {
+  border: 1px solid rgb(118, 21, 148);
+}

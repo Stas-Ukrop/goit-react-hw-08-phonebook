@@ -1,0 +1,78 @@
+body {
+  width: 100%;
+  font-family: "Arial", cursive;
+  font-size: 16px;
+  margin: 0px;
+  height: 100%;
+  background-size: cover;
+  background-color: blue;
+}
+
+.page_register {
+  justify-content: center;
+  text-align: center;
+}
+.page_logins {
+  justify-content: center;
+  text-align: center;
+}
+
+.page_home {
+  justify-content: center;
+  text-align: center;
+}
+.page_contacts {
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+h1 {
+  color: white;
+  font-size: 30px;
+}
+
+.box {
+  justify-content: end;
+  text-align: end;
+}
+
+.btn_close_modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  top: 0px;
+  right: 0px;
+  margin: 10px;
+  padding: 0px;
+  background-color: inherit;
+  border-radius: 50%;
+  fill: white;
+  border: none;
+  outline: none;
+}
+
+.button {
+  padding: 5px;
+  border-radius: 10px;
+  border-color: white;
+  background-color: white;
+  outline: none;
+  font-size: 20px;
+  font-family: "Marck Script";
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.button:hover,
+.button:focus,
+.button:active {
+  box-shadow: 0 0 10px rgb(181, 92, 199);
+  outline: none;
+  border-color: inherit;
+}
+
+.list_filter {
+  display: inline-flex;
+  align-items: flex-end;
+}

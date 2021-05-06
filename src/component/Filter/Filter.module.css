@@ -1,0 +1,28 @@
+.input {
+  display: block;
+  padding: 10px;
+  margin-top: 10px;
+  width: 250px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Marck Script";
+  font-size: 20px;
+}
+input::placeholder {
+  font-family: "Marck Script", cursive;
+}
+.input:hover,
+.input:focus,
+.input:active {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.title {
+  display: block;
+  font-size: 20px;
+  padding-bottom: 10px;
+  text-align: start;
+  padding-left: 10px;
+}

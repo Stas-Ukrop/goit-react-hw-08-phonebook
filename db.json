@@ -1,0 +1,24 @@
+{
+  "contacts": [
+    {
+      "text": "Aligator-Gena",
+      "number": "3280255",
+      "id": 1
+    },
+    {
+      "text": "Chebyrashka",
+      "number": "1456457",
+      "id": 2
+    },
+    {
+      "text": "ert2",
+      "number": "5675",
+      "id": 7
+    },
+    {
+      "text": "ert",
+      "number": "5675",
+      "id": 8
+    }
+  ]
+}

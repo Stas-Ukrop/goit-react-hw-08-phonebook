@@ -4,8 +4,11 @@ import { authOperations } from "../../../redux/auth";
 import styles from "../Form.module.css";
 
 export default function LoginsForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userLog, setUserLog] = useState({
+    email: "",
+    password: "",
+  });
+
   const dispatch = useDispatch();
   const onLogin = useCallback(
     (data) => {
@@ -15,20 +18,19 @@ export default function LoginsForm() {
   );
 
   const handleChangeEmail = useCallback((event) => {
-    setEmail(event.target.value);
+    setUserLog((prev) => ({ ...prev, email: event.target.value }));
   }, []);
   const handleChangePassword = useCallback((event) => {
-    setPassword(event.target.value);
+    setUserLog((prev) => ({ ...prev, password: event.target.value }));
   }, []);
 
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      onLogin({ email, password });
-      setPassword("");
-      setEmail("");
+      onLogin(userLog);
+      setUserLog({ email: "", password: "" });
     },
-    [onLogin, email, password]
+    [onLogin, userLog]
   );
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -38,7 +40,7 @@ export default function LoginsForm() {
           className={styles.input}
           type="email"
           name="email"
-          value={email}
+          value={userLog.email}
           placeholder="Enter email"
           onChange={handleChangeEmail}
         />
@@ -49,7 +51,7 @@ export default function LoginsForm() {
           className={styles.input}
           type="password"
           name="password"
-          value={password}
+          value={userLog.password}
           placeholder="Enter password"
           onChange={handleChangePassword}
         />

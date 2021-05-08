@@ -4,9 +4,11 @@ import { contactsOperations, contactsSelectors } from "../../../redux/contacts";
 import styles from "../Form.module.css";
 
 export default function ContactsForm() {
-  const [name, setName] = useState("");
+  const [userContact, setUserContact] = useState({
+    name: "",
+    number: "",
+  });
   const contacts = useSelector(contactsSelectors.getContacts);
-  const [number, setNumber] = useState("");
   const dispatch = useDispatch();
   const addContacts = useCallback(
     (data) => {
@@ -16,25 +18,27 @@ export default function ContactsForm() {
   );
 
   const handleName = useCallback((evt) => {
-    setName(evt.target.value);
+    setUserContact((prev) => ({ ...prev, name: evt.target.value }));
   }, []);
   const handleNumber = useCallback((evt) => {
-    setNumber(evt.target.value);
+    setUserContact((prev) => ({ ...prev, number: evt.target.value }));
   }, []);
 
   const handleSubmit = useCallback(
     (evt) => {
       evt.preventDefault();
       const allNumber = contacts.map((item) => item.number);
-      const alreadyHaveContact = allNumber.includes(number);
+      const alreadyHaveContact = allNumber.includes(userContact.number);
       if (alreadyHaveContact) {
         return alert(`phone number  is  already in contacts`);
       }
-      addContacts({ name, number });
-      setName("");
-      setNumber("");
+      addContacts(userContact);
+      setUserContact({
+        name: "",
+        number: "",
+      });
     },
-    [addContacts, name, number, contacts]
+    [addContacts, userContact, contacts]
   );
   return (
     <div className={styles.box_form}>
@@ -46,7 +50,7 @@ export default function ContactsForm() {
             className={styles.input}
             type="name"
             name="name"
-            value={name}
+            value={userContact.name}
             placeholder="Enter name"
             onChange={handleName}
             required
@@ -58,7 +62,7 @@ export default function ContactsForm() {
             className={styles.input}
             type="tel"
             name="number"
-            value={number}
+            value={userContact.number}
             placeholder="Enter number"
             onChange={handleNumber}
             required

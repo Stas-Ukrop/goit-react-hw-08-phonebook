@@ -4,9 +4,12 @@ import { useDispatch } from "react-redux";
 import styles from "../Form.module.css";
 
 export default function RegistrationForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [createUser, setCreateUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
   const dispatch = useDispatch();
 
   const onSubmit = useCallback(
@@ -17,22 +20,22 @@ export default function RegistrationForm() {
   );
 
   const handleChangeName = useCallback((event) => {
-    setName(event.target.value);
+    setCreateUser((prev) => ({ ...prev, name: event.target.value }));
   }, []);
   const handleChangePassword = useCallback((event) => {
-    setPassword(event.target.value);
+    setCreateUser((prev) => ({ ...prev, password: event.target.value }));
   }, []);
 
   const handleChangeEmail = useCallback((event) => {
-    setEmail(event.target.value);
+    setCreateUser((prev) => ({ ...prev, email: event.target.value }));
   }, []);
 
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      onSubmit({ name, password, email });
+      onSubmit(createUser);
     },
-    [onSubmit, password, name, email]
+    [onSubmit, createUser]
   );
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -40,7 +43,7 @@ export default function RegistrationForm() {
         Name
         <input
           type="text"
-          value={name}
+          value={createUser.name}
           placeholder="Enter name"
           onChange={handleChangeName}
           name="name"
@@ -54,7 +57,7 @@ export default function RegistrationForm() {
           className={styles.input}
           type="email"
           name="email"
-          value={email}
+          value={createUser.email}
           placeholder="Enter email"
           onChange={handleChangeEmail}
           required
@@ -66,7 +69,7 @@ export default function RegistrationForm() {
           className={styles.input}
           type="password"
           name="password"
-          value={password}
+          value={createUser.password}
           onChange={handleChangePassword}
           placeholder="Enter password"
           required
